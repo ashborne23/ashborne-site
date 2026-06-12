@@ -111,6 +111,49 @@
       100% { width: 340px; opacity: 1; }
     }
 
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 72px;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-text {
+      flex: 1 1 55%;
+      min-width: 0;
+    }
+
+    .hero-image {
+      flex: 0 1 40%;
+      max-width: 460px;
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 1.6s forwards;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(201,168,76,0.4);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+    }
+
+    /* Gold offset frame behind the image */
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      right: -18px;
+      bottom: -18px;
+      border: 1px solid rgba(201,168,76,0.25);
+      pointer-events: none;
+    }
+
     .hero-eyebrow {
       font-family: 'Cinzel', serif;
       font-size: 11px;
@@ -713,6 +756,8 @@
       .nav-links { display: none; }
       section { padding: 80px 28px; }
       .hero { padding: 0 28px; }
+      .hero-inner { flex-direction: column; align-items: flex-start; gap: 48px; }
+      .hero-image { max-width: 340px; }
 
       .about { grid-template-columns: 1fr; gap: 48px; }
       .practice-grid { grid-template-columns: 1fr; }
@@ -727,7 +772,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .burn-line, .hero-eyebrow, .hero-headline, .hero-body, .hero-cta, .hero-scroll {
+      .burn-line, .hero-eyebrow, .hero-headline, .hero-body, .hero-cta, .hero-scroll, .hero-image {
         animation: none;
         opacity: 1;
       }
@@ -751,17 +796,24 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <div class="burn-line"></div>
-    <div class="hero-eyebrow">Executive Search &amp; Leadership Advisory</div>
-    <h1 class="hero-headline">
-      We place the<br><em>exceptional</em><br>among the great.
-    </h1>
-    <p class="hero-body">
-      Ashborne Partners exists for one purpose: to find the leaders who change the course of organisations. Not the available. The right.
-    </p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn-primary">Begin a Search</a>
-      <a href="#about" class="btn-ghost">Our Story</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="burn-line"></div>
+        <div class="hero-eyebrow">Executive Search &amp; Leadership Advisory</div>
+        <h1 class="hero-headline">
+          We place the<br><em>exceptional</em><br>among the great.
+        </h1>
+        <p class="hero-body">
+          Ashborne Partners exists for one purpose: to find the leaders who change the course of organisations. Not the available. The right.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary">Begin a Search</a>
+          <a href="#about" class="btn-ghost">Our Story</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero.jpg" alt="The exceptional standing out among the great" />
+      </div>
     </div>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
