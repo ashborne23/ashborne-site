@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashborne Partners — Executive Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --obsidian:   #0D0D0D;
+      --charcoal:   #1A1818;
+      --ember:      #2A1F1A;
+      --gold:       #C9A84C;
+      --gold-muted: #9A7C3A;
+      --parchment:  #EDE8DC;
+      --ash:        #7A7570;
+      --white:      #F5F2EC;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--obsidian);
+      color: var(--parchment);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 60px;
+      background: linear-gradient(to bottom, rgba(13,13,13,0.95) 0%, transparent 100%);
+    }
+
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 44px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--ash);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--parchment); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(42,31,26,0.8) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* The gold burn line — signature element */
+    .burn-line {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin-bottom: 56px;
+      animation: burn 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+    }
+
+    @keyframes burn {
+      0%   { width: 0; opacity: 0; }
+      10%  { opacity: 1; }
+      100% { width: 340px; opacity: 1; }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 1.1s forwards;
+    }
+
+    .hero-headline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(42px, 6vw, 88px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      max-width: 700px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 1.3s forwards;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.05em;
+      color: var(--parchment);
+    }
+
+    .hero-body {
+      margin-top: 36px;
+      max-width: 480px;
+      font-size: 19px;
+      font-weight: 300;
+      color: var(--ash);
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 1.5s forwards;
+    }
+
+    .hero-cta {
+      margin-top: 52px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 1.7s forwards;
+    }
+
+    .btn-primary {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--obsidian);
+      background: var(--gold);
+      border: none;
+      padding: 18px 40px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #DFB95A;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ash);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-muted);
+      padding-bottom: 2px;
+      transition: color 0.3s;
+    }
+
+    .btn-ghost:hover { color: var(--gold); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 48px;
+      left: 60px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 2s forwards;
+    }
+
+    .scroll-line {
+      width: 48px;
+      height: 1px;
+      background: var(--gold-muted);
+    }
+
+    .scroll-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--ash);
+      text-transform: uppercase;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,168,76,0.25), transparent);
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 120px 60px;
+    }
+
+    .section-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .section-eyebrow::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: var(--gold-muted);
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--charcoal);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .about-headline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--white);
+    }
+
+    .about-body {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--ash);
+      line-height: 1.9;
+    }
+
+    .about-body p + p { margin-top: 24px; }
+
+    .stat-row {
+      display: flex;
+      gap: 60px;
+      margin-top: 56px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .stat-item {}
+
+    .stat-number {
+      font-family: 'Cinzel', serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--ash);
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* ── PRACTICE AREAS ── */
+    .practice {
+      background: var(--obsidian);
+    }
+
+    .practice-header {
+      max-width: 600px;
+      margin-bottom: 80px;
+    }
+
+    .practice-headline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(26px, 3vw, 42px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .practice-card {
+      background: var(--charcoal);
+      padding: 52px 44px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: default;
+    }
+
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .practice-card:hover::before { transform: scaleX(1); }
+    .practice-card:hover { background: var(--ember); }
+
+    .practice-icon {
+      font-size: 28px;
+      margin-bottom: 28px;
+      opacity: 0.7;
+    }
+
+    .practice-title {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .practice-desc {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ash);
+      line-height: 1.8;
+    }
+
+    /* ── APPROACH ── */
+    .approach {
+      background: var(--ember);
+    }
+
+    .approach-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .approach-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3.5vw, 46px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--parchment);
+      line-height: 1.5;
+      margin-bottom: 48px;
+    }
+
+    .approach-quote strong {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .approach-body {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      margin-top: 80px;
+      text-align: left;
+    }
+
+    .approach-step-num {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--gold-muted);
+      margin-bottom: 16px;
+    }
+
+    .approach-step-title {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .approach-step-desc {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ash);
+      line-height: 1.9;
+    }
+
+    /* ── CLIENTS / SOCIAL PROOF ── */
+    .proof {
+      background: var(--charcoal);
+      text-align: center;
+    }
+
+    .proof-headline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(24px, 2.5vw, 36px);
+      font-weight: 600;
+      color: var(--white);
+      max-width: 600px;
+      margin: 0 auto 16px;
+    }
+
+    .proof-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--ash);
+      margin-bottom: 72px;
+    }
+
+    .proof-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 64px;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+      opacity: 0.5;
+    }
+
+    .proof-logo-text {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: var(--parchment);
+      text-transform: uppercase;
+    }
+
+    .testimonial {
+      max-width: 680px;
+      margin: 0 auto;
+      border-left: 1px solid var(--gold-muted);
+      padding-left: 40px;
+      text-align: left;
+    }
+
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--parchment);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .testimonial-attr {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: var(--obsidian);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .contact-headline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .contact-body {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--ash);
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+
+    .contact-detail {
+      margin-bottom: 24px;
+    }
+
+    .contact-detail-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .contact-detail-value {
+      font-size: 17px;
+      color: var(--parchment);
+    }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--gold-muted);
+      text-transform: uppercase;
+    }
+
+    .form-input,
+    .form-textarea {
+      background: var(--charcoal);
+      border: 1px solid rgba(201,168,76,0.15);
+      color: var(--parchment);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 300;
+      padding: 16px 20px;
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--gold-muted);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(122,117,112,0.5);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080808;
+      padding: 56px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--ash);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--ash);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── TEAM ── */
+    .team {
+      background: var(--obsidian);
+    }
+
+    .team-header {
+      max-width: 600px;
+      margin-bottom: 80px;
+    }
+
+    .team-headline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(26px, 3vw, 42px);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px 36px;
+    }
+
+    .team-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--charcoal);
+      border: 1px solid rgba(201,168,76,0.15);
+      filter: grayscale(35%) brightness(0.95);
+      transition: filter 0.4s, border-color 0.4s;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .team-card:hover .team-photo {
+      filter: grayscale(0%) brightness(1);
+      border-color: var(--gold-muted);
+    }
+
+    .team-name {
+      font-family: 'Cinzel', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .team-role {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .team-bio {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ash);
+      line-height: 1.7;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 24px 28px; }
+      .nav-links { display: none; }
+      section { padding: 80px 28px; }
+      .hero { padding: 0 28px; }
+
+      .about { grid-template-columns: 1fr; gap: 48px; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
+      .approach-body { grid-template-columns: 1fr; gap: 40px; }
+      .contact { grid-template-columns: 1fr; gap: 60px; }
+      .stat-row { gap: 36px; }
+      footer { flex-direction: column; gap: 24px; text-align: center; }
+      .footer-links { justify-content: center; }
+      .proof-logos { gap: 32px; }
+      .hero-scroll { left: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .burn-line, .hero-eyebrow, .hero-headline, .hero-body, .hero-cta, .hero-scroll {
+        animation: none;
+        opacity: 1;
+      }
+      .burn-line { width: 340px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Ashborne Partners</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#practice">Practice Areas</a></li>
+      <li><a href="#approach">Our Approach</a></li>
+      <li><a href="#team">Meet Our Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="burn-line"></div>
+    <div class="hero-eyebrow">Executive Search &amp; Leadership Advisory</div>
+    <h1 class="hero-headline">
+      We place the<br><em>exceptional</em><br>among the great.
+    </h1>
+    <p class="hero-body">
+      Ashborne Partners exists for one purpose: to find the leaders who change the course of organisations. Not the available. The right.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Begin a Search</a>
+      <a href="#about" class="btn-ghost">Our Story</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span class="scroll-label">Scroll</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div>
+      <div class="section-eyebrow">Who We Are</div>
+      <h2 class="about-headline">Built on discretion.<br>Measured by legacy.</h2>
+      <div class="stat-row">
+        <div class="stat-item">
+          <div class="stat-number">94%</div>
+          <div class="stat-label">Retention at 3 years</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">18</div>
+          <div class="stat-label">Years of practice</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Global markets</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-body">
+      <p>Ashborne Partners was founded on a belief that most executive search firms confuse access with insight. Having a large database of names is not the same as understanding which one belongs in a specific seat, at a specific moment, inside a specific culture.</p>
+      <p>We are a deliberately small firm. Every search is led by a senior partner — not handed to a researcher after the first call. We go deep into industries, not wide across them. Our clients return not because we fill roles quickly, but because the leaders we place tend to stay, grow, and shape what comes next.</p>
+      <p>When we take on an assignment, we take it completely.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRACTICE AREAS -->
+  <section class="practice" id="practice">
+    <div class="practice-header">
+      <div class="section-eyebrow">Specialisations</div>
+      <h2 class="practice-headline">Where we work best</h2>
+    </div>
+    <div class="practice-grid">
+      <div class="practice-card">
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">CEO &amp; Board</div>
+        <p class="practice-desc">Chief executive appointments and independent board mandates where the stakes demand more than a search — they demand counsel.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">Private Equity &amp; Venture</div>
+        <p class="practice-desc">Portfolio company leadership at every stage of growth. We understand the pressure of a holding period and hire accordingly.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">Technology &amp; Product</div>
+        <p class="practice-desc">CTO, CPO, and VP-level appointments for companies where product is the business. We speak the language fluently.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">Financial Services</div>
+        <p class="practice-desc">Senior appointments across investment management, banking, insurance, and fintech — with full awareness of regulatory complexity.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">Consumer &amp; Retail</div>
+        <p class="practice-desc">Brand-defining leadership for businesses where culture is a competitive asset and customer obsession must run from the top down.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">Leadership Advisory</div>
+        <p class="practice-desc">Succession planning, leadership assessment, and organisational design for boards thinking beyond the immediate vacancy.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- APPROACH -->
+  <section class="approach" id="approach">
+    <div class="approach-inner">
+      <div class="section-eyebrow" style="justify-content: center;">How We Work</div>
+      <p class="approach-quote">
+        "Most searches fail not in the finding — but in the <strong>understanding</strong> of what was truly needed."
+      </p>
+      <div class="approach-body">
+        <div>
+          <div class="approach-step-num">I</div>
+          <div class="approach-step-title">Immersion</div>
+          <p class="approach-step-desc">Before we approach a single candidate, we spend time understanding your organisation at depth — strategy, culture, the unspoken politics, and the precise conditions under which the next leader will succeed or fail.</p>
+        </div>
+        <div>
+          <div class="approach-step-num">II</div>
+          <div class="approach-step-title">Pursuit</div>
+          <p class="approach-step-desc">We target individuals who are not searching. The best leaders rarely are. Our network and reputation give us access to people who will take our call because of who we are, not what we are offering.</p>
+        </div>
+        <div>
+          <div class="approach-step-num">III</div>
+          <div class="approach-step-title">Counsel</div>
+          <p class="approach-step-desc">We advise both sides through the process — honestly. We tell clients when a candidate is not right. We tell candidates when a role is not right for them. This is how we maintain trust across decades.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- MEET OUR TEAM -->
+  <section class="team" id="team">
+    <div class="team-header">
+      <div class="section-eyebrow">The People</div>
+      <h2 class="team-headline">Meet our team</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <img class="team-photo" src="images/team-1.jpg" alt="Eleanor Ashborne" />
+        <div class="team-name">Eleanor Ashborne</div>
+        <div class="team-role">Founding Partner</div>
+        <p class="team-bio">Founded the firm in 2008 after two decades leading board-level practices across London and New York.</p>
+      </div>
+      <div class="team-card">
+        <img class="team-photo" src="images/team-2.jpg" alt="James Whitmore" />
+        <div class="team-name">James Whitmore</div>
+        <div class="team-role">Managing Partner</div>
+        <p class="team-bio">Leads our private equity and venture practice, advising portfolio boards through every stage of growth.</p>
+      </div>
+      <div class="team-card">
+        <img class="team-photo" src="images/team-3.jpg" alt="Priya Nair" />
+        <div class="team-name">Priya Nair</div>
+        <div class="team-role">Partner — Technology</div>
+        <p class="team-bio">Places CTO, CPO, and VP-level leaders for companies where product is the business.</p>
+      </div>
+      <div class="team-card">
+        <img class="team-photo" src="images/team-4.jpg" alt="Marcus Bell" />
+        <div class="team-name">Marcus Bell</div>
+        <div class="team-role">Partner — Financial Services</div>
+        <p class="team-bio">Twenty years of senior appointments across investment management, banking, and insurance.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SOCIAL PROOF -->
+  <section class="proof" id="proof">
+    <div class="section-eyebrow" style="justify-content: center;">Trusted By</div>
+    <h2 class="proof-headline">Companies built to last choose partners who think the same way.</h2>
+    <p class="proof-sub">We work with a small number of clients, deeply and repeatedly.</p>
+    <div class="proof-logos">
+      <span class="proof-logo-text">Meridian Capital</span>
+      <span class="proof-logo-text">Vantage Group</span>
+      <span class="proof-logo-text">Ironfield Ventures</span>
+      <span class="proof-logo-text">Crestwood PLC</span>
+      <span class="proof-logo-text">Aurum Equity</span>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">"Ashborne didn't just find us a CEO. They helped us understand what kind of company we were becoming — and found someone who could lead us there. That's a fundamentally different service."</p>
+      <div class="testimonial-attr">Chairman — FTSE 250 Technology Group</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div>
+      <div class="section-eyebrow">Get in Touch</div>
+      <h2 class="contact-headline">Begin a conversation.</h2>
+      <p class="contact-body">Every engagement begins with a conversation — no obligation, no process. If you are facing a leadership challenge, we would be glad to listen.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-value">enquiries@ashbornepartners.com</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">London</div>
+        <div class="contact-detail-value">+44 (0)20 7946 0800</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">New York</div>
+        <div class="contact-detail-value">+1 (212) 555 0174</div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Organisation</label>
+          <input type="text" class="form-input" placeholder="Company or firm" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="you@company.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nature of Enquiry</label>
+          <textarea class="form-textarea" placeholder="Briefly describe your situation — we will respond within 24 hours."></textarea>
+        </div>
+        <button class="btn-primary" onclick="alert('Thank you. A partner will be in touch within 24 hours.')">Send Enquiry</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Ashborne Partners</div>
+    <div class="footer-copy">© 2026 Ashborne Partners LLP. All rights reserved.</div>
+    <ul class="footer-links">
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
