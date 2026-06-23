@@ -84,6 +84,22 @@
       position: relative;
       overflow: hidden;
     }
+    .hero-backdrop {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(to right, rgba(248,246,242,0.97) 0%, rgba(248,246,242,0.86) 38%, rgba(248,246,242,0.58) 70%, rgba(248,246,242,0.45) 100%),
+        url('images/hero-bg.jpg');
+      background-size: cover, cover;
+      background-position: center, center right;
+      background-repeat: no-repeat, no-repeat;
+    }
+    .hero-backdrop::before {
+      content: ''; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse 60% 80% at 88% 50%, rgba(31,54,92,0.20) 0%, transparent 62%),
+        radial-gradient(ellipse 50% 70% at 78% 70%, rgba(143,166,142,0.22) 0%, transparent 60%);
+    }
+    .hero-eyebrow, .hero-headline, .hero-body, .hero-cta, .hero-scroll, .burn-line { position: relative; z-index: 2; }
 
     /* Background texture */
     .hero::before {
@@ -824,6 +840,7 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
+    <div class="hero-backdrop"></div>
     <div class="burn-line"></div>
     <div class="hero-eyebrow">Executive Search &amp; Leadership Advisory</div>
     <h1 class="hero-headline">
