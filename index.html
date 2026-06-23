@@ -12,14 +12,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --obsidian:   #0D0D0D;
-      --charcoal:   #1A1818;
-      --ember:      #2A1F1A;
-      --gold:       #C9A84C;
-      --gold-muted: #9A7C3A;
-      --parchment:  #EDE8DC;
-      --ash:        #7A7570;
-      --white:      #F5F2EC;
+      --obsidian:   #F8F6F2;
+      --charcoal:   #F2EFE9;
+      --ember:      #EAE5DC;
+      --gold:       #8FA68E;
+      --gold-muted: #B8A99A;
+      --parchment:  #1F365C;
+      --ash:        #6E6A66;
+      --white:      #1F365C;
     }
 
     html { scroll-behavior: smooth; }
@@ -42,7 +42,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 28px 60px;
-      background: linear-gradient(to bottom, rgba(13,13,13,0.95) 0%, transparent 100%);
+      background: linear-gradient(to bottom, rgba(248,246,242,0.92) 0%, transparent 100%);
     }
 
     .nav-logo {
@@ -91,8 +91,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(42,31,26,0.8) 0%, transparent 50%);
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(143,166,142,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(234,229,220,0.8) 0%, transparent 50%);
       pointer-events: none;
     }
 
@@ -179,7 +179,7 @@
     }
 
     .btn-primary:hover {
-      background: #DFB95A;
+      background: #8FA68E;
       transform: translateY(-1px);
     }
 
@@ -231,7 +231,7 @@
     .divider {
       width: 100%;
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(201,168,76,0.25), transparent);
+      background: linear-gradient(to right, transparent, rgba(143,166,142,0.45), transparent);
     }
 
     /* ── SECTION BASE ── */
@@ -291,7 +291,7 @@
       gap: 60px;
       margin-top: 56px;
       padding-top: 48px;
-      border-top: 1px solid rgba(201,168,76,0.15);
+      border-top: 1px solid rgba(143,166,142,0.30);
     }
 
     .stat-item {}
@@ -573,7 +573,7 @@
     .form-input,
     .form-textarea {
       background: var(--charcoal);
-      border: 1px solid rgba(201,168,76,0.15);
+      border: 1px solid rgba(143,166,142,0.30);
       color: var(--parchment);
       font-family: 'Cormorant Garamond', serif;
       font-size: 17px;
@@ -596,17 +596,17 @@
 
     .form-input::placeholder,
     .form-textarea::placeholder {
-      color: rgba(122,117,112,0.5);
+      color: rgba(110,106,102,0.4);
     }
 
     /* ── FOOTER ── */
     footer {
-      background: #080808;
+      background: #1A2D4D;
       padding: 56px 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid rgba(201,168,76,0.1);
+      border-top: 1px solid rgba(143,166,142,0.22);
     }
 
     .footer-logo {
@@ -671,7 +671,7 @@
       aspect-ratio: 4 / 5;
       object-fit: cover;
       background: var(--charcoal);
-      border: 1px solid rgba(201,168,76,0.15);
+      border: 1px solid rgba(143,166,142,0.30);
       filter: grayscale(35%) brightness(0.95);
       transition: filter 0.4s, border-color 0.4s;
       margin-bottom: 24px;
@@ -744,7 +744,6 @@
       <li><a href="#about">About</a></li>
       <li><a href="#practice">Practice Areas</a></li>
       <li><a href="#approach">Our Approach</a></li>
-      <li><a href="#team">Meet Our Team</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -778,22 +777,22 @@
       <h2 class="about-headline">Built on discretion.<br>Measured by legacy.</h2>
       <div class="stat-row">
         <div class="stat-item">
-          <div class="stat-number">94%</div>
-          <div class="stat-label">Retention at 3 years</div>
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years of founder experience</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">18</div>
-          <div class="stat-label">Years of practice</div>
+          <div class="stat-number">SaaS &amp; AI</div>
+          <div class="stat-label">Our focus</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">6</div>
-          <div class="stat-label">Global markets</div>
+          <div class="stat-number">Fortune 500</div>
+          <div class="stat-label">Calibre of placements</div>
         </div>
       </div>
     </div>
     <div class="about-body">
-      <p>Ashborne Partners was founded on a belief that most executive search firms confuse access with insight. Having a large database of names is not the same as understanding which one belongs in a specific seat, at a specific moment, inside a specific culture.</p>
-      <p>We are a deliberately small firm. Every search is led by a senior partner — not handed to a researcher after the first call. We go deep into industries, not wide across them. Our clients return not because we fill roles quickly, but because the leaders we place tend to stay, grow, and shape what comes next.</p>
+      <p>Ashborne Partners is founded on over a decade of experience placing leaders across SaaS, AI, and Fortune 500 companies. That background shapes a simple belief: most executive search confuses access with insight. Having a large database of names is not the same as understanding which one belongs in a specific seat, at a specific moment, inside a specific culture.</p>
+      <p>We are a deliberately focused firm. We specialise in sales and revenue leadership — Chief Revenue Officers, VPs of Sales, and the senior commercial talent that determines whether a company hits its number. We go deep into the AI and SaaS markets rather than wide across every industry.</p>
       <p>When we take on an assignment, we take it completely.</p>
     </div>
   </section>
@@ -872,57 +871,14 @@
   <div class="divider"></div>
 
   <!-- MEET OUR TEAM -->
-  <section class="team" id="team">
-    <div class="team-header">
-      <div class="section-eyebrow">The People</div>
-      <h2 class="team-headline">Meet our team</h2>
-    </div>
-    <div class="team-grid">
-      <div class="team-card">
-        <img class="team-photo" src="images/team-1.jpg" alt="Eleanor Ashborne" />
-        <div class="team-name">Eleanor Ashborne</div>
-        <div class="team-role">Founding Partner</div>
-        <p class="team-bio">Founded the firm in 2008 after two decades leading board-level practices across London and New York.</p>
-      </div>
-      <div class="team-card">
-        <img class="team-photo" src="images/team-2.jpg" alt="James Whitmore" />
-        <div class="team-name">James Whitmore</div>
-        <div class="team-role">Managing Partner</div>
-        <p class="team-bio">Leads our private equity and venture practice, advising portfolio boards through every stage of growth.</p>
-      </div>
-      <div class="team-card">
-        <img class="team-photo" src="images/team-3.jpg" alt="Priya Nair" />
-        <div class="team-name">Priya Nair</div>
-        <div class="team-role">Partner — Technology</div>
-        <p class="team-bio">Places CTO, CPO, and VP-level leaders for companies where product is the business.</p>
-      </div>
-      <div class="team-card">
-        <img class="team-photo" src="images/team-4.jpg" alt="Marcus Bell" />
-        <div class="team-name">Marcus Bell</div>
-        <div class="team-role">Partner — Financial Services</div>
-        <p class="team-bio">Twenty years of senior appointments across investment management, banking, and insurance.</p>
-      </div>
-    </div>
-  </section>
 
   <div class="divider"></div>
 
   <!-- SOCIAL PROOF -->
   <section class="proof" id="proof">
-    <div class="section-eyebrow" style="justify-content: center;">Trusted By</div>
+    <div class="section-eyebrow" style="justify-content: center;">How We Work</div>
     <h2 class="proof-headline">Companies built to last choose partners who think the same way.</h2>
-    <p class="proof-sub">We work with a small number of clients, deeply and repeatedly.</p>
-    <div class="proof-logos">
-      <span class="proof-logo-text">Meridian Capital</span>
-      <span class="proof-logo-text">Vantage Group</span>
-      <span class="proof-logo-text">Ironfield Ventures</span>
-      <span class="proof-logo-text">Crestwood PLC</span>
-      <span class="proof-logo-text">Aurum Equity</span>
-    </div>
-    <div class="testimonial">
-      <p class="testimonial-text">"Ashborne didn't just find us a CEO. They helped us understand what kind of company we were becoming — and found someone who could lead us there. That's a fundamentally different service."</p>
-      <div class="testimonial-attr">Chairman — FTSE 250 Technology Group</div>
-    </div>
+    <p class="proof-sub">We partner with a select number of AI and SaaS companies, deeply and discreetly. Client details are shared in confidence during a first conversation.</p>
   </section>
 
   <div class="divider"></div>
@@ -974,8 +930,8 @@
     <div class="footer-logo">Ashborne Partners</div>
     <div class="footer-copy">© 2026 Ashborne Partners LLP. All rights reserved.</div>
     <ul class="footer-links">
-      <li><a href="privacy.html">Privacy</a></li>
-      <li><a href="terms.html">Terms</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
       <li><a href="#">LinkedIn</a></li>
     </ul>
   </footer>
