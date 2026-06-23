@@ -1013,25 +1013,29 @@
       </div>
     </div>
     <div>
-      <div class="contact-form">
+      <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="contact-form">
+        <input type="hidden" name="form-name" value="enquiry" />
+        <p style="display:none;">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
         <div class="form-group">
           <label class="form-label">Full Name</label>
-          <input type="text" class="form-input" placeholder="Your name" />
+          <input type="text" name="name" class="form-input" placeholder="Your name" required />
         </div>
         <div class="form-group">
           <label class="form-label">Organisation</label>
-          <input type="text" class="form-input" placeholder="Company or firm" />
+          <input type="text" name="organisation" class="form-input" placeholder="Company or firm" />
         </div>
         <div class="form-group">
           <label class="form-label">Email Address</label>
-          <input type="email" class="form-input" placeholder="you@company.com" />
+          <input type="email" name="email" class="form-input" placeholder="you@company.com" required />
         </div>
         <div class="form-group">
           <label class="form-label">Nature of Enquiry</label>
-          <textarea class="form-textarea" placeholder="Briefly describe your situation — we will respond within 24 hours."></textarea>
+          <textarea class="form-textarea" name="message" placeholder="Briefly describe your situation — we will respond within 24 hours." required></textarea>
         </div>
-        <button class="btn-primary" onclick="alert('Thank you. A partner will be in touch within 24 hours.')">Send Enquiry</button>
-      </div>
+        <button type="submit" class="btn-primary">Send Enquiry</button>
+      </form>
     </div>
   </section>
 
