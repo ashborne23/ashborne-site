@@ -734,7 +734,51 @@
       .burn-line { width: 340px; }
     }
   
-    /* --- Alternating navy sections --- */
+    /* --- Practice cards as links + image slots --- */
+    a.practice-card { text-decoration: none; display: block; }
+    .practice-card { background: var(--charcoal); padding: 0 0 52px; position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+    .practice-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(31,54,92,0.12); }
+    /* Image slot: shows photo if present, else an on-palette abstract gradient */
+    .practice-img {
+      height: 150px;
+      background-color: #1F365C;
+      background-size: cover;
+      background-position: center;
+      background-image: linear-gradient(135deg, #1F365C 0%, #2C4A78 45%, #8FA68E 130%);
+      position: relative;
+    }
+    .practice-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 75% 20%, rgba(184,169,154,0.35) 0%, transparent 55%);
+    }
+    .practice-icon { font-size: 26px; opacity: 0.7; color: #8FA68E; padding: 32px 44px 0; }
+    .practice-title { padding: 0 44px; margin-top: 18px; }
+    .practice-desc { padding: 0 44px; }
+    .practice-more {
+      display: inline-block;
+      margin: 22px 44px 0;
+      font-family: 'Cinzel', serif;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-muted);
+      transition: color 0.3s, letter-spacing 0.3s;
+    }
+    .practice-card:hover .practice-more { color: #8FA68E; letter-spacing: 0.24em; }
+
+    /* --- Abstract hero accent (works with no photo) --- */
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -8%; top: 50%; transform: translateY(-50%);
+      width: 46%; height: 70%;
+      background:
+        radial-gradient(circle at 60% 40%, rgba(143,166,142,0.18) 0%, transparent 60%),
+        conic-gradient(from 200deg at 60% 50%, rgba(184,169,154,0.12), transparent 40%, rgba(31,54,92,0.08));
+      border-radius: 50% 50% 48% 52% / 55% 45% 55% 45%;
+      filter: blur(2px);
+      pointer-events: none;
+      z-index: 0;
+    }
     .dark-section { background: #1F365C !important; }
     .dark-section,
     .dark-section p,
@@ -836,36 +880,55 @@
       <h2 class="practice-headline">Where we work best</h2>
     </div>
     <div class="practice-grid">
-      <div class="practice-card">
+      <a class="practice-card" href="practice-cro.html">
+        <div class="practice-img" style="background-image:url('images/practice-cro.jpg');"></div>
         <div class="practice-icon">◈</div>
-        <div class="practice-title">CEO &amp; Board</div>
-        <p class="practice-desc">Chief executive appointments and independent board mandates where the stakes demand more than a search — they demand counsel.</p>
-      </div>
-      <div class="practice-card">
+        <div class="practice-title">CRO &amp; Revenue Leadership</div>
+        <p class="practice-desc">Chief Revenue Officers and senior revenue leaders who own the number — and the strategy behind it.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
+      <a class="practice-card" href="practice-vp-sales.html">
+        <div class="practice-img" style="background-image:url('images/practice-vp-sales.jpg');"></div>
         <div class="practice-icon">◈</div>
-        <div class="practice-title">Private Equity &amp; Venture</div>
-        <p class="practice-desc">Portfolio company leadership at every stage of growth. We understand the pressure of a holding period and hire accordingly.</p>
-      </div>
-      <div class="practice-card">
+        <div class="practice-title">VP Sales &amp; Sales Leadership</div>
+        <p class="practice-desc">The sales leaders who build teams, set the motion, and turn strategy into repeatable execution.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
+      <a class="practice-card" href="practice-enterprise-ae.html">
+        <div class="practice-img" style="background-image:url('images/practice-enterprise-ae.jpg');"></div>
         <div class="practice-icon">◈</div>
-        <div class="practice-title">Technology &amp; Product</div>
-        <p class="practice-desc">CTO, CPO, and VP-level appointments for companies where product is the business. We speak the language fluently.</p>
-      </div>
-      <div class="practice-card">
+        <div class="practice-title">Enterprise AE &amp; GTM</div>
+        <p class="practice-desc">Enterprise account executives and go-to-market hires who close complex, high-value deals.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
+      <a class="practice-card" href="practice-marketing.html">
+        <div class="practice-img" style="background-image:url('images/practice-marketing.jpg');"></div>
         <div class="practice-icon">◈</div>
-        <div class="practice-title">Financial Services</div>
-        <p class="practice-desc">Senior appointments across investment management, banking, insurance, and fintech — with full awareness of regulatory complexity.</p>
-      </div>
-      <div class="practice-card">
+        <div class="practice-title">Marketing Leadership</div>
+        <p class="practice-desc">The marketing leaders who build demand, shape the category, and feed the revenue engine at the top of the funnel.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
+      <a class="practice-card" href="practice-solutions-consulting.html">
+        <div class="practice-img" style="background-image:url('images/practice-solutions-consulting.jpg');"></div>
         <div class="practice-icon">◈</div>
-        <div class="practice-title">Consumer &amp; Retail</div>
-        <p class="practice-desc">Brand-defining leadership for businesses where culture is a competitive asset and customer obsession must run from the top down.</p>
-      </div>
-      <div class="practice-card">
+        <div class="practice-title">Solutions Consulting &amp; Sales Engineering</div>
+        <p class="practice-desc">The pre-sales talent that wins the technical decision and turns complex products into closed deals.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
+      <a class="practice-card" href="practice-revops.html">
+        <div class="practice-img" style="background-image:url('images/practice-revops.jpg');"></div>
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">RevOps &amp; Sales Operations</div>
+        <p class="practice-desc">The operators who give revenue teams their systems, data, and forecasting discipline.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
+      <a class="practice-card" href="practice-advisory.html">
+        <div class="practice-img" style="background-image:url('images/practice-advisory.jpg');"></div>
         <div class="practice-icon">◈</div>
         <div class="practice-title">Leadership Advisory</div>
-        <p class="practice-desc">Succession planning, leadership assessment, and organisational design for boards thinking beyond the immediate vacancy.</p>
-      </div>
+        <p class="practice-desc">Search strategy, market mapping, and compensation benchmarking for revenue leadership hires.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
     </div>
   </section>
 
@@ -960,8 +1023,8 @@
     <div class="footer-logo">Ashborne Partners</div>
     <div class="footer-copy">© 2026 Ashborne Partners LLP. All rights reserved.</div>
     <ul class="footer-links">
-      <li><a href="#">Privacy</a></li>
-      <li><a href="#">Terms</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
       <li><a href="#">LinkedIn</a></li>
     </ul>
   </footer>
