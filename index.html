@@ -132,7 +132,7 @@
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.35em;
-      color: var(--gold);
+      color: var(--parchment);
       text-transform: uppercase;
       margin-bottom: 28px;
       opacity: 0;
@@ -163,8 +163,8 @@
       margin-top: 36px;
       max-width: 480px;
       font-size: 19px;
-      font-weight: 300;
-      color: var(--ash);
+      font-weight: 400;
+      color: var(--parchment);
       line-height: 1.8;
       opacity: 0;
       animation: fadeUp 0.9s ease 1.5s forwards;
@@ -396,6 +396,42 @@
       font-weight: 300;
       color: var(--ash);
       line-height: 1.8;
+    }
+
+    /* ── INDUSTRIES ── */
+    .industries-header {
+      max-width: 600px;
+      margin-bottom: 56px;
+    }
+    .industries-headline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(26px, 3vw, 42px);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .industries-intro {
+      margin-top: 24px;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 520px;
+    }
+    .industries-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .industry-pill {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      padding: 16px 30px;
+      border: 1px solid rgba(143,166,142,0.45);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .industry-pill:hover {
+      border-color: #8FA68E;
+      background: rgba(143,166,142,0.12);
     }
 
     /* ── APPROACH ── */
@@ -822,6 +858,9 @@
     }
     .dark-section .form-label { color: #B8A99A !important; }
     .dark-section .approach-quote { border-color: rgba(143,166,142,0.4) !important; }
+    .dark-section .industries-headline,
+    .dark-section .industry-pill { color: #F8F6F2 !important; }
+    .dark-section .industries-intro { color: #B8A99A !important; }
 
   </style>
 </head>
@@ -833,6 +872,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#practice">Practice Areas</a></li>
+      <li><a href="#industries">Industries</a></li>
       <li><a href="#approach">Our Approach</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -946,6 +986,30 @@
         <p class="practice-desc">Search strategy, market mapping, and compensation benchmarking for revenue leadership hires.</p>
         <span class="practice-more">Explore practice →</span>
       </a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- INDUSTRIES -->
+  <section class="industries dark-section" id="industries">
+    <div class="industries-header">
+      <div class="section-eyebrow">Industries</div>
+      <h2 class="industries-headline">Where our placements work</h2>
+      <p class="industries-intro">Our search practice is built around revenue and go-to-market leadership — and that talent drives growth across every sector building and selling technology.</p>
+    </div>
+    <div class="industries-grid">
+      <div class="industry-pill">SaaS</div>
+      <div class="industry-pill">Artificial Intelligence</div>
+      <div class="industry-pill">IT Services</div>
+      <div class="industry-pill">Cloud &amp; Data Infrastructure</div>
+      <div class="industry-pill">Cybersecurity</div>
+      <div class="industry-pill">Banking &amp; Financial Services</div>
+      <div class="industry-pill">Fintech</div>
+      <div class="industry-pill">Telecommunications</div>
+      <div class="industry-pill">Retail &amp; E-Commerce</div>
+      <div class="industry-pill">Healthcare &amp; Life Sciences</div>
+      <div class="industry-pill">Manufacturing</div>
     </div>
   </section>
 
