@@ -74,6 +74,30 @@
 
     .nav-links a:hover { color: var(--parchment); }
 
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 110;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--parchment);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
@@ -760,22 +784,69 @@
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 24px 28px; }
-      .nav-links { display: none; }
-      section { padding: 80px 28px; }
-      .hero { padding: 0 28px; }
+    /* ── TABLET ── */
+    @media (max-width: 1024px) {
+      nav { padding: 24px 40px; }
+      section { padding: 100px 40px; }
+      .hero { padding: 0 40px; }
+      .practice-grid { grid-template-columns: repeat(2, 1fr); }
+      .approach-body { grid-template-columns: 1fr 1fr; gap: 48px; }
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
+      .about { gap: 60px; }
+      .contact { gap: 60px; }
+      .hero-scroll { left: 40px; }
+    }
 
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 28px; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: 0;
+        height: 100vh;
+        width: min(78vw, 320px);
+        flex-direction: column;
+        justify-content: center;
+        gap: 36px;
+        background: var(--obsidian);
+        box-shadow: -8px 0 40px rgba(31,54,92,0.15);
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0 44px;
+        z-index: 105;
+      }
+      .nav-links.open { transform: translateX(0); }
+      .nav-links a { font-size: 14px; }
+
+      section { padding: 72px 28px; }
+      .hero { padding: 0 28px; }
       .about { grid-template-columns: 1fr; gap: 48px; }
       .practice-grid { grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
       .approach-body { grid-template-columns: 1fr; gap: 40px; }
-      .contact { grid-template-columns: 1fr; gap: 60px; }
+      .contact { grid-template-columns: 1fr; gap: 56px; }
       .stat-row { gap: 36px; }
       footer { flex-direction: column; gap: 24px; text-align: center; }
       .footer-links { justify-content: center; }
       .proof-logos { gap: 32px; }
       .hero-scroll { left: 28px; }
+    }
+
+    /* ── SMALL PHONE ── */
+    @media (max-width: 520px) {
+      nav { padding: 18px 20px; }
+      section { padding: 60px 20px; }
+      .hero { padding: 0 20px; }
+      .hero-cta { flex-direction: column; align-items: flex-start; gap: 22px; }
+      .hero-cta .btn-primary { width: 100%; text-align: center; }
+      .hero-headline { font-size: clamp(34px, 11vw, 48px); }
+      .hero-body { font-size: 17px; margin-top: 28px; }
+      .team-grid { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
+      .industries-grid { gap: 10px; }
+      .industry-pill { padding: 13px 22px; font-size: 12px; }
+      .hero-scroll { display: none; }
+      .practice-header, .industries-header { margin-bottom: 48px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -869,7 +940,10 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">Ashborne Partners</a>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#practice">Practice Areas</a></li>
       <li><a href="#industries">Industries</a></li>
@@ -1113,6 +1187,30 @@
       <li><a href="#">LinkedIn</a></li>
     </ul>
   </footer>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      if (!toggle || !links) return;
+
+      function closeMenu() {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      toggle.addEventListener('click', function () {
+        var isOpen = links.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
 
 </body>
 </html>

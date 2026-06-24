@@ -75,6 +75,19 @@
 
     .nav-links a:hover { color: var(--parchment); }
 
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px; height: 32px;
+      background: none; border: none; cursor: pointer; padding: 0; z-index: 110;
+    }
+    .nav-toggle span { display: block; width: 26px; height: 2px; background: var(--parchment); transition: transform 0.3s, opacity 0.3s; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* ── PAGE HEADER ── */
     .policy-header {
       padding: 200px 60px 70px;
@@ -257,12 +270,34 @@
     }
     .footer-links a:hover { color: var(--gold); }
 
+    @media (max-width: 1024px) {
+      nav { padding: 24px 40px; }
+      .policy-header { padding: 180px 40px 60px; }
+      .policy-body { padding: 20px 40px 100px; }
+    }
+    @media (max-width: 860px) {
+      nav { padding: 20px 28px; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed; top: 0; right: 0;
+        height: 100vh; width: min(78vw, 320px);
+        flex-direction: column; justify-content: center; gap: 34px;
+        background: var(--obsidian);
+        box-shadow: -8px 0 40px rgba(31,54,92,0.18);
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+        padding: 0 44px; z-index: 105;
+      }
+      .nav-links.open { transform: translateX(0); }
+      .nav-links a { font-size: 14px; }
+    }
     @media (max-width: 640px) {
-      nav { padding: 20px 24px; }
-      .nav-links { display: none; }
-      .policy-header { padding: 150px 24px 50px; }
-      .policy-header h1 { font-size: 32px; }
-      .policy-body { padding: 20px 24px 80px; }
+      nav { padding: 18px 20px; }
+      .policy-header { padding: 140px 20px 44px; }
+      .policy-header h1 { font-size: 30px; }
+      .policy-body { padding: 20px 20px 72px; }
+      .intro { font-size: 18px; }
+      .contact-block { padding: 28px 24px; }
       footer { flex-direction: column; text-align: center; }
     }
   </style>
@@ -270,7 +305,8 @@
 <body>
   <nav>
     <a href="index.html" class="nav-logo">Ashborne Partners</a>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#practice">Practice</a></li>
       <li><a href="index.html#approach">Approach</a></li>
@@ -290,7 +326,7 @@
     <p>Ashborne Partners (&ldquo;Ashborne,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is an executive search firm specialising in senior sales and revenue leadership placements for technology companies across North America. This policy applies to our Website Visitors, Candidates, Prospective Candidates, and Clients. We may update it from time to time; any changes will be posted on this page.</p>
 
     <h2>Who We Are</h2>
-    <p>Ashborne Partners is operated by Ashborne Partners LLP, with its principal place of business at <span class="placeholder">[123 Placeholder Avenue, Suite 000, City, State ZIP]</span>. For any questions about this policy or your personal data, contact us at <a class="inline" href="mailto:enquiries@ashbornepartners.com">enquiries@ashbornepartners.com</a>.</p>
+    <p>Ashborne Partners is operated by Ashborne Partners LLP, with its principal place of business at <span class="placeholder">[123 Placeholder Avenue, Suite 000, City, State ZIP]</span>. For any questions about this policy or your personal data, contact us at <a class="inline" href="mailto:hello@ashbornepartners.co.in">hello@ashbornepartners.co.in</a>.</p>
 
     <h2>What Personal Data We Collect</h2>
     <h3>Candidates</h3>
@@ -331,13 +367,13 @@
     <p>We do not sell your personal information.</p>
 
     <h2>How We Protect Your Data</h2>
-    <p>We take reasonable and appropriate technical and organisational measures to protect personal data from misuse, loss, or unauthorised access. If you suspect any misuse or unauthorised access to your information, please contact us immediately at <a class="inline" href="mailto:enquiries@ashbornepartners.com">enquiries@ashbornepartners.com</a>.</p>
+    <p>We take reasonable and appropriate technical and organisational measures to protect personal data from misuse, loss, or unauthorised access. If you suspect any misuse or unauthorised access to your information, please contact us immediately at <a class="inline" href="mailto:hello@ashbornepartners.co.in">hello@ashbornepartners.co.in</a>.</p>
 
     <h2>How Long We Keep Your Data</h2>
     <p>We retain personal data for as long as needed to provide our services and to keep you informed of opportunities that may interest you. If you ask us to stop holding your data, we will delete it unless we are required to retain it for legal, tax, or regulatory reasons. In determining retention periods, we consider the nature and sensitivity of the data and the purposes for which we hold it.</p>
 
     <h2>Your Rights & Choices</h2>
-    <p>You may contact us at any time to access, correct, update, or request deletion of the personal data we hold about you, or to opt out of marketing communications. To make a request, email <a class="inline" href="mailto:enquiries@ashbornepartners.com">enquiries@ashbornepartners.com</a>. We may need to verify your identity before acting on your request, and we will respond in accordance with applicable law.</p>
+    <p>You may contact us at any time to access, correct, update, or request deletion of the personal data we hold about you, or to opt out of marketing communications. To make a request, email <a class="inline" href="mailto:hello@ashbornepartners.co.in">hello@ashbornepartners.co.in</a>. We may need to verify your identity before acting on your request, and we will respond in accordance with applicable law.</p>
 
     <h2>Cookies</h2>
     <p>Our website may use cookies and similar technologies to understand how visitors use the site and to improve your experience. You can control or reject cookies through your browser settings; doing so may affect some features of the site. <span class="placeholder">[Adjust this section to reflect the cookies your site actually uses.]</span></p>
@@ -347,14 +383,14 @@
     <h2>For California Residents</h2>
     <p>If you are a California resident, the California Consumer Privacy Act (as amended by the CPRA) gives you certain rights regarding your personal information. Within the preceding 12 months, we may have collected the following categories of personal information: identifiers (such as name and contact details); professional or employment-related information (such as work history, qualifications, and references); and inferences drawn from that information to assess suitability for roles.</p>
     <p>We collect this information from the sources, and use it for the purposes, described elsewhere in this policy. We have not sold personal information as &ldquo;sale&rdquo; is defined under the CCPA.</p>
-    <p>California residents may request that we disclose the categories and specific pieces of personal information we have collected, the purposes for collecting it, and the categories of third parties with whom we have shared it; and may request that we delete personal information we collected from them. You have the right not to be discriminated against for exercising these rights. To make a request, contact us at <a class="inline" href="mailto:enquiries@ashbornepartners.com">enquiries@ashbornepartners.com</a>.</p>
+    <p>California residents may request that we disclose the categories and specific pieces of personal information we have collected, the purposes for collecting it, and the categories of third parties with whom we have shared it; and may request that we delete personal information we collected from them. You have the right not to be discriminated against for exercising these rights. To make a request, contact us at <a class="inline" href="mailto:hello@ashbornepartners.co.in">hello@ashbornepartners.co.in</a>.</p>
 
     <div class="contact-block">
       <h2>Contact Us</h2>
       <p style="margin-bottom:8px;">For any privacy-related questions or requests:</p>
       <p style="margin-bottom:4px;">Ashborne Partners</p>
       <p style="margin-bottom:4px;"><span class="placeholder">[123 Placeholder Avenue, Suite 000, City, State ZIP]</span></p>
-      <p style="margin-bottom:0;">Email: <a class="inline" href="mailto:enquiries@ashbornepartners.com">enquiries@ashbornepartners.com</a></p>
+      <p style="margin-bottom:0;">Email: <a class="inline" href="mailto:hello@ashbornepartners.co.in">hello@ashbornepartners.co.in</a></p>
     </div>
   </main>
 
@@ -367,5 +403,16 @@
     </ul>
     <span class="footer-copy">&copy; 2026 ASHBORNE PARTNERS</span>
   </footer>
+  <script>
+    (function () {
+      var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
+      if (!t || !l) return;
+      function close() { l.classList.remove('open'); t.classList.remove('open'); t.setAttribute('aria-expanded','false'); }
+      t.addEventListener('click', function () {
+        var o = l.classList.toggle('open'); t.classList.toggle('open', o); t.setAttribute('aria-expanded', o ? 'true' : 'false');
+      });
+      l.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+    })();
+  </script>
 </body>
 </html>
