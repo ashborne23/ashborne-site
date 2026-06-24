@@ -830,7 +830,8 @@
       .team-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
       .approach-body { grid-template-columns: 1fr; gap: 40px; }
       .contact { grid-template-columns: 1fr; gap: 56px; }
-      .stat-row { gap: 36px; }
+      .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+      .stat-number { font-size: 34px; word-break: break-word; }
       footer { flex-direction: column; gap: 24px; text-align: center; }
       .footer-links { justify-content: center; }
       .proof-logos { gap: 32px; }
@@ -851,6 +852,8 @@
       .industry-pill { padding: 13px 22px; font-size: 12px; }
       .hero-scroll { display: none; }
       .practice-header, .industries-header { margin-bottom: 48px; }
+      .stat-row { grid-template-columns: 1fr; gap: 28px; }
+      .stat-number { font-size: 38px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
