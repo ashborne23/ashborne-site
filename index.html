@@ -45,7 +45,10 @@
       align-items: center;
       justify-content: space-between;
       padding: 28px 60px;
-      background: linear-gradient(to bottom, rgba(248,246,242,0.92) 0%, transparent 100%);
+      background: rgba(31,54,92,0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(143,166,142,0.18);
     }
 
     .nav-logo {
@@ -69,13 +72,13 @@
       font-size: 11px;
       font-weight: 400;
       letter-spacing: 0.2em;
-      color: var(--ash);
+      color: #F8F6F2;
       text-decoration: none;
       text-transform: uppercase;
       transition: color 0.3s;
     }
 
-    .nav-links a:hover { color: var(--parchment); }
+    .nav-links a:hover { color: var(--gold); }
 
     .nav-toggle {
       display: none;
@@ -94,8 +97,8 @@
       display: block;
       width: 26px;
       height: 2px;
-      background: var(--parchment);
-      transition: transform 0.3s, opacity 0.3s;
+      background: #F8F6F2;
+      transition: transform 0.3s, opacity 0.3s, background 0.3s;
     }
     .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-toggle.open span:nth-child(2) { opacity: 0; }
@@ -821,7 +824,8 @@
         z-index: 105;
       }
       .nav-links.open { transform: translateX(0); visibility: visible; }
-      .nav-links a { font-size: 14px; }
+      .nav-links a { font-size: 14px; color: var(--parchment); }
+      .nav-toggle.open span { background: var(--parchment); }
 
       section { padding: 72px 28px; }
       .hero { padding: 0 28px; }
@@ -973,10 +977,6 @@
     <div class="hero-cta">
       <a href="#contact" class="btn-primary">Begin a Search</a>
       <a href="#about" class="btn-ghost">Our Story</a>
-    </div>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      <span class="scroll-label">Scroll</span>
     </div>
   </section>
 
