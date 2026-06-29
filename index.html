@@ -53,13 +53,15 @@
 
     .nav-logo {
       font-family: 'Cinzel', serif;
-      font-size: 15px;
+      font-size: 19px;
       font-weight: 600;
-      letter-spacing: 0.25em;
-      color: var(--gold);
+      letter-spacing: 0.22em;
+      color: #F8F6F2;
       text-decoration: none;
       text-transform: uppercase;
     }
+    .nav-logo-main { color: #F8F6F2; }
+    .nav-logo-accent { color: var(--gold); font-weight: 500; }
 
     .nav-links {
       display: flex;
@@ -950,7 +952,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">Ashborne Partners</a>
+    <a href="#" class="nav-logo"><span class="nav-logo-main">Ashborne</span> <span class="nav-logo-accent">Partners</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1196,6 +1198,18 @@
   </footer>
 
   <script>
+    // Don't restore the previous scroll position on reload.
+    // Anchor links (e.g. #industries) still work because the browser
+    // jumps to the hash after load; this only disables position memory.
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.addEventListener('load', function () {
+      if (!window.location.hash) {
+        window.scrollTo(0, 0);
+      }
+    });
+
     (function () {
       var toggle = document.getElementById('navToggle');
       var links = document.getElementById('navLinks');
