@@ -40,15 +40,6 @@
       }
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px; height: 1px;
-      padding: 0; margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border: 0;
-    }
 
     :focus-visible {
       outline: 2px solid var(--gold);
@@ -600,84 +591,6 @@
     }
     .field.on { opacity: 1; }
 
-    /* ── RESOLVING HEADLINE ──
-       The word cycles through candidates and settles. It runs once,
-       then never again: the point is arrival, not motion. */
-    .resolve {
-      position: relative;
-      display: inline-block;
-      white-space: nowrap;
-    }
-
-    .resolve-slot {
-      display: inline-block;
-      position: relative;
-      vertical-align: baseline;
-    }
-
-    /* Invisible sizer holds the final width so nothing reflows. */
-    .resolve-sizer {
-      visibility: hidden;
-      display: inline-block;
-    }
-
-    .resolve-live {
-      position: absolute;
-      left: 0;
-      top: 0;
-      white-space: nowrap;
-    }
-
-    .resolve-word {
-      position: absolute;
-      left: 0;
-      top: 0;
-      white-space: nowrap;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.28s ease, transform 0.28s ease;
-    }
-
-    .resolve-word.on {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* Candidates read as considered-then-discarded, not as noise. */
-    .resolve-word.pass {
-      opacity: 0.28;
-      transform: translateY(-5px);
-      transition: opacity 0.34s ease, transform 0.34s ease;
-    }
-
-    /* The settled word gets a hairline that draws under it once. */
-    .resolve-word.final {
-      opacity: 1;
-      transform: none;
-      transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
-    }
-
-    .resolve-rule {
-      position: absolute;
-      left: 0;
-      bottom: 0.06em;
-      height: 1px;
-      width: 0;
-      background: linear-gradient(to right, var(--gold), rgba(143,166,142,0));
-      pointer-events: none;
-    }
-
-    .resolve-rule.draw {
-      width: 100%;
-      transition: width 1.15s var(--ease);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .resolve-word { opacity: 1 !important; transform: none !important; }
-      .resolve-live { position: static; }
-      .resolve-sizer { display: none; }
-      .resolve-rule { width: 100%; transition: none; }
-    }
 
     /* ── SCROLL REVEAL ──
        One shared system. Elements are marked by JS on load so the
@@ -1471,8 +1384,7 @@
     <div class="burn-line"></div>
     <div class="hero-eyebrow">Executive Search &amp; Leadership Advisory</div>
     <h1 class="hero-headline">
-      We place the<br><span class="resolve"><span class="resolve-slot"><em class="resolve-sizer">exceptional</em><span class="resolve-live" id="resolveLive" aria-hidden="true"></span><span class="resolve-rule" id="resolveRule"></span></span></span><br>among the great.
-      <span class="sr-only">exceptional</span>
+      We place the<br><em>exceptional</em><br>among the great.
     </h1>
     <p class="hero-body">
       Ashborne Partners exists for one purpose: to find the leaders who change the course of organisations. Not the available. The right.
@@ -1785,65 +1697,9 @@
   <script>
 
 
-    /* ── 1. Resolving headline ──
-       Cycles candidate words, then settles on the real one. Runs
-       once. The alternates are near-misses, which is the point:
-       these are the people you would have settled for. */
-    (function () {
-      var live = document.getElementById('resolveLive');
-      var rule = document.getElementById('resolveRule');
-      if (!live) return;
-
-      var FINAL = 'exceptional';
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (reduce) {
-        live.innerHTML = '<span class="resolve-word final">' + FINAL + '</span>';
-        if (rule) rule.classList.add('draw');
-        return;
-      }
-
-      var candidates = ['available', 'qualified', 'interested', 'impressive', FINAL];
-      var i = 0;
-
-      function show(word, isFinal) {
-        var el = document.createElement('span');
-        el.className = 'resolve-word';
-        el.textContent = word;
-        live.appendChild(el);
-
-        // Force a reflow so the entry transition actually runs.
-        void el.offsetWidth;
-        el.classList.add(isFinal ? 'final' : 'on');
-
-        if (isFinal) return;
-
-        setTimeout(function () {
-          el.classList.remove('on');
-          el.classList.add('pass');
-          setTimeout(function () {
-            if (el.parentNode) el.parentNode.removeChild(el);
-          }, 340);
-        }, 300);
-      }
-
-      function step() {
-        var isFinal = (i === candidates.length - 1);
-        show(candidates[i], isFinal);
-        if (isFinal) {
-          setTimeout(function () { if (rule) rule.classList.add('draw'); }, 260);
-          return;
-        }
-        i++;
-        setTimeout(step, 330);
-      }
-
-      // Begin after the headline itself has faded in.
-      setTimeout(step, 1500);
-    })();
 
 
-    /* ── 2. Ambient field ──
+    /* ── 1. Ambient field ──
        Drifting nodes; an edge is drawn only where two fall close
        enough to relate. Paused when off-screen or when the tab is
        hidden, so it costs nothing when unseen. */
@@ -1958,7 +1814,7 @@
     })();
 
 
-    /* ── 3. Search shape ──
+    /* ── 2. Search shape ──
        Redraws the ledger for the selected practice. Figures are
        representative funnel shapes, not published placement counts. */
     (function () {
