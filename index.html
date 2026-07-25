@@ -143,17 +143,18 @@
     .hero-backdrop {
       position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background-image:
-        linear-gradient(to right, rgba(248,246,242,0.97) 0%, rgba(248,246,242,0.86) 38%, rgba(248,246,242,0.58) 70%, rgba(248,246,242,0.45) 100%),
+        linear-gradient(105deg, rgba(16,27,48,0.94) 0%, rgba(18,32,58,0.86) 42%, rgba(22,41,74,0.66) 72%, rgba(31,54,92,0.5) 100%),
         url('images/hero-bg.jpg');
       background-size: cover, cover;
       background-position: center, center right;
       background-repeat: no-repeat, no-repeat;
     }
     .hero-backdrop::before {
-      content: ''; position: absolute; inset: 0; z-index: -1;
+      content: ''; position: absolute; inset: 0; z-index: 1;
       background:
-        radial-gradient(ellipse 60% 80% at 88% 50%, rgba(31,54,92,0.20) 0%, transparent 62%),
-        radial-gradient(ellipse 50% 70% at 78% 70%, rgba(143,166,142,0.22) 0%, transparent 60%);
+        linear-gradient(to top, rgba(16,27,48,0.5) 0%, transparent 30%),
+        radial-gradient(ellipse 44% 60% at 80% 45%, rgba(143,166,142,0.14) 0%, transparent 62%);
+      pointer-events: none;
     }
     .hero-eyebrow, .hero-headline, .hero-body, .hero-cta, .hero-scroll, .burn-line { position: relative; z-index: 2; }
 
@@ -1356,6 +1357,25 @@
     .dark-section .industries-headline,
     .dark-section .industry-pill { color: #F8F6F2 !important; }
     .dark-section .industries-intro { color: #D9CDBB !important; }
+
+
+    /* Dark hero: invert text to light, brighten accents */
+    .hero-eyebrow { color: #C9B896 !important; }
+    .hero-headline { color: #F8F6F2 !important; }
+    .hero-headline em { color: #A9C0A6 !important; }
+    .hero-body { color: rgba(248,246,242,0.82) !important; }
+.hero-cta .btn-primary {
+      background: #8FA68E !important; color: #16294A !important;
+      box-shadow: 0 6px 22px -8px rgba(143,166,142,0.55);
+    }
+    .hero-cta .btn-primary:hover { background: #A2B79F !important; }
+    .btn-ghost { color: rgba(248,246,242,0.72) !important; border-bottom-color: rgba(201,184,150,0.6) !important; }
+    .btn-ghost:hover { color: #C9B896 !important; }
+    .hero-scroll { color: rgba(248,246,242,0.6) !important; }
+    .hero-scroll span, .hero-scroll .hero-scroll-line { background: rgba(248,246,242,0.4) !important; }
+    .burn-line { opacity: 0.5; }
+
+
 
   </style>
 </head>
