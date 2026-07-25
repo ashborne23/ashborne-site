@@ -16,11 +16,11 @@
     }
     html { scroll-behavior:smooth; overflow-x:hidden; }
     body { background:var(--ivory); color:var(--navy); font-family:'Cormorant Garamond',Georgia,serif; font-size:18px; line-height:1.75; -webkit-font-smoothing:antialiased; overflow-x:hidden; width:100%; max-width:100%; }
-    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:28px 60px; background:linear-gradient(to bottom, rgba(248,246,242,0.96) 0%, rgba(248,246,242,0.85) 70%, transparent 100%); }
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:28px 60px; background:#1F365C; border-bottom:1px solid rgba(143,166,142,0.22); }
     .nav-logo { font-family:'Cinzel',serif; font-size:15px; font-weight:600; letter-spacing:0.25em; color:var(--sage); text-decoration:none; text-transform:uppercase; }
     .nav-links { display:flex; gap:44px; list-style:none; }
-    .nav-links a { font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.2em; color:var(--ash); text-decoration:none; text-transform:uppercase; transition:color 0.3s; }
-    .nav-links a:hover { color:var(--navy); }
+    .nav-links a { font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.2em; color:var(--ivory); text-decoration:none; text-transform:uppercase; transition:color 0.3s; }
+    .nav-links a:hover { color:var(--sage); }
     .nav-toggle { display:none; flex-direction:column; justify-content:center; gap:5px; width:32px; height:32px; background:none; border:none; cursor:pointer; padding:0; z-index:110; }
     .nav-toggle span { display:block; width:26px; height:2px; background:var(--navy); transition:transform 0.3s, opacity 0.3s; }
     .nav-toggle.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
@@ -28,7 +28,7 @@
     .nav-toggle.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
     .p-hero { position:relative; padding:200px 60px 90px; overflow:hidden; background:var(--navy); }
-    .p-hero::before { content:''; position:absolute; inset:0; z-index:0; background-image: linear-gradient(105deg, rgba(16,27,48,0.94) 0%, rgba(18,32,58,0.85) 44%, rgba(22,41,74,0.62) 74%, rgba(31,54,92,0.45) 100%), url('images/practice-advisory.jpg'); background-size:cover, cover; background-position:center, center right; background-repeat:no-repeat, no-repeat; pointer-events:none; }
+    .p-hero::before { content:''; position:absolute; inset:0; z-index:0; background-image: linear-gradient(105deg, rgba(16,27,48,0.94) 0%, rgba(18,32,58,0.85) 44%, rgba(22,41,74,0.62) 74%, rgba(31,54,92,0.45) 100%), url('images/practice-advisory.jpg'); background-size:cover, cover; background-position:center center, center center; background-repeat:no-repeat, no-repeat; pointer-events:none; }
     .p-hero::after { content:''; position:absolute; right:-6%; top:50%; transform:translateY(-50%); width:46%; height:120%;
       background:radial-gradient(circle at 60% 40%, rgba(143,166,142,0.22) 0%, transparent 60%), conic-gradient(from 200deg at 60% 50%, rgba(184,169,154,0.16), transparent 42%, rgba(255,255,255,0.05));
       border-radius:50% 50% 48% 52%/55% 45% 55% 45%; filter:blur(2px); pointer-events:none; }
@@ -81,7 +81,7 @@
     @media (max-width:860px) {
       nav { padding:20px 28px; }
       .nav-toggle { display:flex; }
-      .nav-links { position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px); flex-direction:column; justify-content:center; gap:34px; background:var(--ivory); box-shadow:-8px 0 40px rgba(31,54,92,0.18); transform:translateX(100%); transition:transform 0.35s cubic-bezier(0.4,0,0.2,1), visibility 0.35s; visibility:hidden; padding:0 44px; z-index:105; }
+      .nav-links { position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px); flex-direction:column; justify-content:center; gap:34px; background:#1F365C; box-shadow:-8px 0 40px rgba(0,0,0,0.35); transform:translateX(100%); transition:transform 0.35s cubic-bezier(0.4,0,0.2,1), visibility 0.35s; visibility:hidden; padding:0 44px; z-index:105; }
       .nav-links.open { transform:translateX(0); visibility:visible; }
       .nav-links a { font-size:14px; }
     }
