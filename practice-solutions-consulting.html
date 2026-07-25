@@ -27,17 +27,17 @@
     .nav-toggle.open span:nth-child(2) { opacity:0; }
     .nav-toggle.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
-    .p-hero { position:relative; padding:200px 60px 90px; overflow:hidden; background:var(--navy); }
-    .p-hero::before { content:''; position:absolute; inset:0; z-index:0; background-image: linear-gradient(105deg, rgba(16,27,48,0.94) 0%, rgba(18,32,58,0.85) 44%, rgba(22,41,74,0.62) 74%, rgba(31,54,92,0.45) 100%), url('images/practice-solutions-consulting.jpg'); background-size:cover, cover; background-position:center center, center center; background-repeat:no-repeat, no-repeat; pointer-events:none; }
+    .p-hero { position:relative; width:100%; aspect-ratio:3/2; min-height:360px; overflow:hidden; background:var(--navy); display:flex; align-items:flex-end; }
+    .p-hero::before { content:''; position:absolute; inset:0; z-index:0; background-image: linear-gradient(to top, rgba(16,27,48,0.88) 0%, rgba(16,27,48,0.35) 34%, rgba(16,27,48,0.12) 60%, transparent 100%), url('images/practice-solutions-consulting.jpg'); background-size: cover, cover; background-position: center, center; background-repeat:no-repeat; pointer-events:none; }
     .p-hero::after { content:''; position:absolute; right:-6%; top:50%; transform:translateY(-50%); width:46%; height:120%;
       background:radial-gradient(circle at 60% 40%, rgba(143,166,142,0.22) 0%, transparent 60%), conic-gradient(from 200deg at 60% 50%, rgba(184,169,154,0.16), transparent 42%, rgba(255,255,255,0.05));
       border-radius:50% 50% 48% 52%/55% 45% 55% 45%; filter:blur(2px); pointer-events:none; }
-    .p-hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .p-hero-inner { position:relative; z-index:2; max-width:1200px; margin:0 auto; width:100%; padding:0 60px 54px; }
     .crumb { font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--sage); margin-bottom:26px; }
     .crumb a { color:var(--taupe); text-decoration:none; }
     .crumb a:hover { color:var(--ivory); }
-    .p-title { font-family:'Cinzel',serif; font-size:clamp(34px,4vw,52px); font-weight:700; line-height:1.12; color:var(--ivory); margin-bottom:28px; max-width:100%; overflow-wrap:break-word; }
-    .p-lede { font-size:22px; font-weight:300; color:var(--ivory); max-width:680px; opacity:0.92; }
+    .p-title { font-family:'Cinzel',serif; font-size:clamp(34px,4vw,52px); font-weight:700; line-height:1.12; color:var(--ivory); margin-bottom:28px; max-width:100%; overflow-wrap:break-word;  text-shadow:0 2px 6px rgba(16,27,48,0.45); }
+    .p-lede { font-size:clamp(17px,1.5vw,21px); font-weight:300; color:var(--ivory); max-width:600px; opacity:0.94; line-height:1.55; text-shadow:0 1px 3px rgba(16,27,48,0.5); }
 
     .p-body { max-width:900px; margin:0 auto; padding:80px 60px 40px; }
     .detail-block { margin-bottom:48px; }
@@ -74,7 +74,7 @@
 
     @media (max-width:1024px) {
       nav { padding:24px 40px; }
-      .p-hero { padding:170px 40px 80px; }
+      .p-hero { min-height:320px; }
       .p-body,.other { padding-left:40px; padding-right:40px; }
       .roles,.p-cta { padding-left:40px; padding-right:40px; }
     }
@@ -86,8 +86,8 @@
       .nav-links a { font-size:14px; }
     }
     @media (max-width:640px) {
-      .p-hero { padding:140px 24px 60px; }
-      .p-title { font-size:clamp(30px,8vw,42px); }
+      .p-hero { min-height:260px; }
+      .p-hero-inner { padding:0 28px 34px; } .p-title { font-size:clamp(30px,8vw,42px); }
       .p-lede { font-size:19px; }
       .p-body,.other { padding-left:24px; padding-right:24px; }
       .roles ul { columns:1; } .roles,.p-cta { padding-left:24px; padding-right:24px; }
