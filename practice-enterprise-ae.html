@@ -27,8 +27,8 @@
     .nav-toggle.open span:nth-child(2) { opacity:0; }
     .nav-toggle.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
-    .p-hero { position:relative; width:100%; aspect-ratio:3/2; min-height:360px; overflow:hidden; background:var(--navy); display:flex; align-items:flex-end; }
-    .p-hero::before { content:''; position:absolute; inset:0; z-index:0; background-image: linear-gradient(to top, rgba(16,27,48,0.88) 0%, rgba(16,27,48,0.35) 34%, rgba(16,27,48,0.12) 60%, transparent 100%), url('images/practice-enterprise-ae.jpg'); background-size: cover, cover; background-position: center, center; background-repeat:no-repeat; pointer-events:none; }
+    .p-hero { position:relative; width:100%; height:520px; overflow:hidden; background:var(--navy); display:flex; align-items:flex-end; }
+    .p-hero::before { content:''; position:absolute; inset:0; z-index:0; background-image: linear-gradient(to top, rgba(16,27,48,0.88) 0%, rgba(16,27,48,0.35) 34%, rgba(16,27,48,0.12) 60%, transparent 100%), url('images/practice-enterprise-ae.jpg'); background-size: cover, cover; background-position: center, center 48%; background-repeat:no-repeat; pointer-events:none; }
     .p-hero::after { content:''; position:absolute; right:-6%; top:50%; transform:translateY(-50%); width:46%; height:120%;
       background:radial-gradient(circle at 60% 40%, rgba(143,166,142,0.22) 0%, transparent 60%), conic-gradient(from 200deg at 60% 50%, rgba(184,169,154,0.16), transparent 42%, rgba(255,255,255,0.05));
       border-radius:50% 50% 48% 52%/55% 45% 55% 45%; filter:blur(2px); pointer-events:none; }
@@ -74,7 +74,7 @@
 
     @media (max-width:1024px) {
       nav { padding:24px 40px; }
-      .p-hero { min-height:320px; }
+      .p-hero { height:400px; }
       .p-body,.other { padding-left:40px; padding-right:40px; }
       .roles,.p-cta { padding-left:40px; padding-right:40px; }
     }
@@ -86,7 +86,7 @@
       .nav-links a { font-size:14px; }
     }
     @media (max-width:640px) {
-      .p-hero { min-height:260px; }
+      .p-hero { height:340px; }
       .p-hero-inner { padding:0 28px 34px; } .p-title { font-size:clamp(30px,8vw,42px); }
       .p-lede { font-size:19px; }
       .p-body,.other { padding-left:24px; padding-right:24px; }
