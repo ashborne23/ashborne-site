@@ -74,7 +74,7 @@
 
     @media (max-width:1024px) {
       nav { padding:24px 40px; }
-      .p-hero { height:400px; }
+      .p-hero { height:420px; }
       .p-body,.other { padding-left:40px; padding-right:40px; }
       .roles,.p-cta { padding-left:40px; padding-right:40px; }
     }
@@ -86,8 +86,11 @@
       .nav-links a { font-size:14px; }
     }
     @media (max-width:640px) {
-      .p-hero { height:340px; }
-      .p-hero-inner { padding:0 28px 34px; } .p-title { font-size:clamp(30px,8vw,42px); }
+      /* Stack: image banner on top, text below on navy (no overlap) */
+      .p-hero { height:auto; min-height:0; display:block; padding:0 0 40px; background:var(--navy); }
+      .p-hero::before { position:absolute; top:0; left:0; right:0; height:260px; inset:auto; }
+      .p-hero-inner { padding:284px 24px 0; }
+      .p-title { font-size:clamp(30px,8vw,42px); }
       .p-lede { font-size:19px; }
       .p-body,.other { padding-left:24px; padding-right:24px; }
       .roles ul { columns:1; } .roles,.p-cta { padding-left:24px; padding-right:24px; }
