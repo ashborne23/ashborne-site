@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Ashborne Partners</title>
+  <meta name="description" content="Begin a conversation with Ashborne Partners. Every engagement starts with a no-obligation discussion of your leadership search." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo"><span class="nav-logo-main">Ashborne</span> <span class="nav-logo-accent">Partners</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About</a></li>
+      <li><a href="practice.html">Practice Areas</a></li>
+      <li><a href="approach.html">Approach</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTACT -->
+  <section class="contact dark-section" id="contact" style="padding-top:160px;">
+    <div class="coverage-block">
+      <div class="section-eyebrow">Where We Work</div>
+      <p class="coverage-intro">Search and market mapping across five regions — wherever the mandate takes us.</p>
+      <div class="coverage-map">
+        <!--
+          ⚠ PASTE-BACK NEEDED: the <svg class="coverage-svg">...</svg> world-map
+          block from your original index.html goes here, unchanged. It didn't
+          come through in this session's file transfer, so rather than risk
+          corrupting the ISO country path data, this spot is left as a marker.
+          Copy the full <svg class="coverage-svg" ...> ... </svg> element from
+          your source file (it starts with the "Simple World Map" title/desc
+          and country <path> elements) and paste it in place of this comment.
+        -->
+      </div>
+      <div class="coverage-pills">
+        <div class="coverage-pill">North America</div>
+        <div class="coverage-pill">UK &amp; Ireland</div>
+        <div class="coverage-pill">Europe</div>
+        <div class="coverage-pill">Middle East</div>
+        <div class="coverage-pill">Asia Pacific</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-eyebrow">Get in Touch</div>
+      <h2 class="contact-headline">Begin a conversation.</h2>
+      <p class="contact-body">Every engagement begins with a conversation — no obligation, no process. If you are facing a leadership challenge, we would be glad to listen.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Email</div>
+        <div class="contact-detail-value">hello@ashbornepartners.co.in</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Coverage</div>
+        <div class="contact-detail-value">Five regions, globally</div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-label">Response</div>
+        <div class="contact-detail-value">Within one business day</div>
+      </div>
+    </div>
+    <div>
+      <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="contact-form">
+        <input type="hidden" name="form-name" value="enquiry" />
+        <p style="display:none;">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" name="name" class="form-input" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Organisation</label>
+          <input type="text" name="organisation" class="form-input" placeholder="Company or firm" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" name="email" class="form-input" placeholder="you@company.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nature of Enquiry</label>
+          <textarea class="form-textarea" name="message" placeholder="Briefly describe your situation — we will respond within 24 hours." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send Enquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Ashborne Partners</div>
+    <div class="footer-copy">© 2026 Ashborne Partners. All rights reserved.</div>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

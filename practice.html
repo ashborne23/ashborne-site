@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashborne Partners — Executive Search</title>
-  <meta name="description" content="Ashborne Partners is an executive search firm specialising in revenue and go-to-market leadership placements for North American AI and SaaS companies." />
+  <title>Practice Areas — Ashborne Partners</title>
+  <meta name="description" content="Ashborne Partners specialises in revenue and go-to-market leadership placements: CRO, VP Sales, Enterprise AE, Marketing Leadership, Solutions Consulting, RevOps, and Leadership Advisory." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
@@ -20,60 +20,24 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="about.html">About</a></li>
-      <li><a href="practice.html">Practice Areas</a></li>
+      <li><a href="practice.html" aria-current="page">Practice Areas</a></li>
       <li><a href="approach.html">Approach</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-backdrop"></div>
-    <canvas class="field" id="field" aria-hidden="true"></canvas>
-    <div class="burn-line"></div>
-    <div class="hero-eyebrow">Executive Search &amp; Leadership Advisory</div>
-    <h1 class="hero-headline">
-      We place the<br><em>exceptional</em><br>among the great.
-    </h1>
-    <p class="hero-body">
-      Ashborne Partners exists for one purpose: to find the leaders who change the course of organisations. Not the available. The right.
-    </p>
-    <div class="hero-cta">
-      <a href="contact.html" class="btn-primary">Begin a Search</a>
-      <a href="approach.html" class="btn-ghost">How We Search</a>
-    </div>
-  </section>
-
-  <!-- PHOTO TEASER -->
-  <div class="photo-banner" style="background-image:url('images/home-teaser.jpg');">
-    <div class="photo-banner-label">Search Built on Judgement, Not Volume</div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- ABOUT TEASER (split photo) -->
-  <section class="split-photo">
-    <div class="split-photo-copy">
-      <div class="section-eyebrow">Who We Are</div>
-      <h2 class="split-photo-title">Built on discretion.<br>Measured by legacy.</h2>
-      <div class="split-photo-body">
-        <p>Ashborne Partners is founded on over a decade of experience placing leaders across SaaS, AI, and Fortune 500 companies. We are a deliberately focused firm, specialising in the revenue and go-to-market leadership that determines whether a company hits its number.</p>
-      </div>
-      <div class="hero-cta" style="margin-top:36px;">
-        <a href="about.html" class="btn-primary">Learn About Us</a>
-      </div>
-    </div>
-    <div class="split-photo-img" style="background-image:url('images/home-about.jpg');"></div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- PRACTICE AREAS PREVIEW -->
-  <section class="practice" id="practice">
-    <div class="practice-header">
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="--page-hero-img:url('images/practice-hero.jpg');"></div>
+    <div class="page-hero-inner">
       <div class="section-eyebrow">Specialisations</div>
-      <h2 class="practice-headline">Where we work best</h2>
+      <h1 class="page-hero-title">Where we work best</h1>
+      <p class="page-hero-sub">Seven practice areas within a single discipline — revenue and go-to-market leadership.</p>
     </div>
+  </section>
+
+  <!-- PRACTICE AREAS -->
+  <section class="practice" id="practice" style="padding-top:96px;">
     <div class="practice-grid">
       <a class="practice-card" href="practice-cro.html">
         <div class="practice-img" style="background-image:url('images/practice-cro.jpg'); background-position:center 40%;"></div>
@@ -96,9 +60,34 @@
         <p class="practice-desc">Enterprise account executives and go-to-market hires who close complex, high-value deals.</p>
         <span class="practice-more">Explore practice →</span>
       </a>
-    </div>
-    <div style="text-align:center; margin-top:56px;">
-      <a href="practice.html" class="btn-ghost">View All Practice Areas →</a>
+      <a class="practice-card" href="practice-marketing.html">
+        <div class="practice-img" style="background-image:url('images/practice-marketing.jpg');"></div>
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">Marketing Leadership</div>
+        <p class="practice-desc">The marketing leaders who build demand, shape the category, and feed the revenue engine at the top of the funnel.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
+      <a class="practice-card" href="practice-solutions-consulting.html">
+        <div class="practice-img" style="background-image:url('images/practice-solutions-consulting.jpg');"></div>
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">Solutions Consulting &amp; Sales Engineering</div>
+        <p class="practice-desc">The pre-sales talent that wins the technical decision and turns complex products into closed deals.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
+      <a class="practice-card" href="practice-revops.html">
+        <div class="practice-img" style="background-image:url('images/practice-revops.jpg');"></div>
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">RevOps &amp; Sales Operations</div>
+        <p class="practice-desc">The operators who give revenue teams their systems, data, and forecasting discipline.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
+      <a class="practice-card" href="practice-advisory.html">
+        <div class="practice-img" style="background-image:url('images/practice-advisory.jpg');"></div>
+        <div class="practice-icon">◈</div>
+        <div class="practice-title">Leadership Advisory</div>
+        <p class="practice-desc">Search strategy, market mapping, and compensation benchmarking for revenue leadership hires.</p>
+        <span class="practice-more">Explore practice →</span>
+      </a>
     </div>
   </section>
 
@@ -107,7 +96,7 @@
   <!-- CTA -->
   <section class="page-cta dark-section">
     <div class="section-eyebrow" style="justify-content:center;">Get in Touch</div>
-    <h2 class="page-cta-title">Every engagement begins with a conversation — no obligation, no process.</h2>
+    <h2 class="page-cta-title">Facing a leadership challenge in one of these seats? Let's talk.</h2>
     <div class="hero-cta">
       <a href="contact.html" class="btn-primary">Begin a Search</a>
     </div>
